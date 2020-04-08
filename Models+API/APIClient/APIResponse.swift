@@ -9,7 +9,7 @@
 import Foundation
 
 class APIResponse<Model:Decodable> : Decodable {
-    var result: Bool?
+    var success: Bool?
     var message: String?
     var code: Int?
     var data: Model?

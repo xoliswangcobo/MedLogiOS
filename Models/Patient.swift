@@ -8,6 +8,7 @@
 
 import Foundation
 
-class Patient: Decodable, Encodable {
-    
+class Patient: User {
+    var bedNumber: Int?
+    var ward: Ward?
 }

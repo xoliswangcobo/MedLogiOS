@@ -1,0 +1,56 @@
+{
+    "/api/users/me" : {
+        "data" : {
+            "email" : "ngcobox@gmail.com",
+            "firstname" : "Xoliswa",
+            "lastname" : "Ngcobo",
+            "mobile" : "+27833374192",
+            "uuid" : "12345-zxcvb-567ma-qwert",
+            "countryCode" : "ZA",
+            "languageCode" : "EN",
+            "access":"ADMIN"
+        }, "success": {
+            "message": "User found",
+            "code": 10001
+        }
+    }, "/api/users/authenticate" : {
+        "required" : {
+            "username" : "ngcobox@gmail.com",
+            "password" : "qwertyui"
+        }, "success": {
+            "message": "User auth success.",
+            "code": 10002
+        }, "failure": {
+            "message": "User auth failed.",
+            "code": 10003
+        }
+    }, "/api/users/signup" : {
+        "success": {
+            "message": "User created successfully.",
+            "code": 10004
+        }, "failure": {
+            "message": "User creation failed.",
+            "code": 10005
+        }
+    }, "/api/users/resetaccount" : {
+        "required" : {
+            "username" : "ngcobox@gmail.com"
+        }, "success": {
+            "message": "Account reset sent to email.",
+            "code": 10006
+        }, "failure": {
+            "message": "Failed to initiate account reset request.",
+            "code": 10007
+        }
+    }, "/api/files/mine" : {
+        "data" : [
+            {}
+        ], "success": {
+            "message": "Found file(s).",
+            "code": 10008
+        }, "failure": {
+            "message": "No files found",
+            "code": 10009
+        }
+    }
+}

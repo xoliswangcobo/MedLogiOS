@@ -59,7 +59,6 @@ enum HTTPAcceptType: String {
 }
 
 protocol APIClientProtocol {
-    
     func url() -> URL
     func parameters() -> [String : Any]?
     func extraHeaders() -> [String : String]?
