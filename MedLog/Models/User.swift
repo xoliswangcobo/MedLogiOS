@@ -10,16 +10,17 @@ import Foundation
 
 class User: Decodable, Encodable {
     var email: String?
+    var password: String?
     var firstname: String?
     var lastname: String?
     var mobile: String?
     var uuid: String?
     var countryCode: String?
     var languageCode: String?
-    var access:AccessStatus?
+    var access:Role?
 }
 
-enum AccessStatus : String, Codable {
+enum Role : String, Codable {
     case ADMIN
     case TECHNICIAN
     case PATIENT

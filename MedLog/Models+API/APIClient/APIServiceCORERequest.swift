@@ -35,9 +35,9 @@ class APIServiceCORERequest : APIServiceProtocol {
             if let theResponse = response {
                 let apiResponse:APIResponse<Model>? = Model.decode(theResponse)
                 
-                if apiResponse?.result == true {
+                if apiResponse?.success == true {
                     responseHandler(nil, Model.decode(theResponse))
-                } else if apiResponse?.result == false {
+                } else if apiResponse?.success == false {
                     if let code =  apiResponse?.code, code > 0 {
                         responseHandler(NSError.errorForCode(code: code), nil)
                     } else if let message = apiResponse?.message, message != "" {

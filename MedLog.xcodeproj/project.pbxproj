@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3EF40E1673654187796546A /* Pods_MedLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB9843966561D90B784496F /* Pods_MedLog.framework */; };
 		F30763F524346D0200C1C82E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30763F424346D0200C1C82E /* AppDelegate.swift */; };
 		F30763FC24346D0200C1C82E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F30763FA24346D0200C1C82E /* Main.storyboard */; };
 		F30763FE24346D0500C1C82E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F30763FD24346D0500C1C82E /* Assets.xcassets */; };
@@ -67,6 +68,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		043F187D7697B4E2F6005D0E /* Pods-MedLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedLog.debug.xcconfig"; path = "Target Support Files/Pods-MedLog/Pods-MedLog.debug.xcconfig"; sourceTree = "<group>"; };
+		4AB9843966561D90B784496F /* Pods_MedLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MedLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBCFF415527C51EE6804C415 /* Pods-MedLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedLog.release.xcconfig"; path = "Target Support Files/Pods-MedLog/Pods-MedLog.release.xcconfig"; sourceTree = "<group>"; };
 		F30763F124346D0200C1C82E /* MedLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30763F424346D0200C1C82E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F30763FB24346D0200C1C82E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,17 +137,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3EF40E1673654187796546A /* Pods_MedLog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07DA25C9A2D88F2DEB1D5FF6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				043F187D7697B4E2F6005D0E /* Pods-MedLog.debug.xcconfig */,
+				CBCFF415527C51EE6804C415 /* Pods-MedLog.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7DCF40BF64B88396FB6D999F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4AB9843966561D90B784496F /* Pods_MedLog.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F30763E824346D0200C1C82E = {
 			isa = PBXGroup;
 			children = (
 				F30763F324346D0200C1C82E /* MedLog */,
 				F30763F224346D0200C1C82E /* Products */,
+				07DA25C9A2D88F2DEB1D5FF6 /* Pods */,
+				7DCF40BF64B88396FB6D999F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -323,9 +347,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F307640524346D0500C1C82E /* Build configuration list for PBXNativeTarget "MedLog" */;
 			buildPhases = (
+				39C0FC4DF99A9C81A8AC5577 /* [CP] Check Pods Manifest.lock */,
 				F30763ED24346D0200C1C82E /* Sources */,
 				F30763EE24346D0200C1C82E /* Frameworks */,
 				F30763EF24346D0200C1C82E /* Resources */,
+				409A624D26C5B4883578D564 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -382,6 +408,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		39C0FC4DF99A9C81A8AC5577 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MedLog-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		409A624D26C5B4883578D564 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MedLog/Pods-MedLog-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MedLog/Pods-MedLog-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MedLog/Pods-MedLog-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F30763ED24346D0200C1C82E /* Sources */ = {
@@ -582,6 +650,7 @@
 		};
 		F307640624346D0500C1C82E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 043F187D7697B4E2F6005D0E /* Pods-MedLog.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -601,6 +670,7 @@
 		};
 		F307640724346D0500C1C82E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBCFF415527C51EE6804C415 /* Pods-MedLog.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
