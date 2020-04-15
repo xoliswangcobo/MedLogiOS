@@ -11,7 +11,7 @@ import UIKit
 extension UIColor {
     
     class var primary: UIColor {
-        return UIColor.init(named: "")!
+        return UIColor.init(named: "primary")!
     }
     
     class var secondary: UIColor {
@@ -19,7 +19,7 @@ extension UIColor {
     }
     
     class var tertiary: UIColor {
-        return UIColor.init(named: "")!
+        return UIColor.init(named: "tertiary")!
     }
     
     class var shadow: UIColor {

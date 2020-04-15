@@ -14,7 +14,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Set Navigation/TabBar attributes
+        UINavigationBar.appearance().barTintColor = .white
+        UINavigationBar.appearance().tintColor = .primary
+        UITabBar.appearance().barTintColor = .white
+        UITabBar.appearance().tintColor = .primary
+        UITabBar.appearance().unselectedItemTintColor = .tertiary
+        
+//        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "ABeeZee-Regular", size: 11)!], for: .normal)
+//        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "ABeeZee-Regular", size: 11) as Any], for: .selected)
+//        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "ABeeZee-Regular", size: 17)!], for: .normal)
+//        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "ABeeZee-Regular", size: 17) as Any], for: .selected)
+        
         return true
     }
 

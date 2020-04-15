@@ -23,7 +23,7 @@
 		F30764242435C7AB00C1C82E /* BiometricAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30764202435C7AB00C1C82E /* BiometricAuth.swift */; };
 		F30764252435C7AB00C1C82E /* KeyChainSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30764212435C7AB00C1C82E /* KeyChainSecurity.swift */; };
 		F30764262435C7AB00C1C82E /* ManagedCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30764222435C7AB00C1C82E /* ManagedCollection.swift */; };
-		F30764752435DFD800C1C82E /* URL+Lokto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F307645C2435DFD600C1C82E /* URL+Lokto.swift */; };
+		F30764752435DFD800C1C82E /* URL+Medlog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F307645C2435DFD600C1C82E /* URL+Medlog.swift */; };
 		F30764762435DFD800C1C82E /* UIImage+ColorExtraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F307645D2435DFD600C1C82E /* UIImage+ColorExtraction.swift */; };
 		F30764772435DFD800C1C82E /* String+CountryFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F307645E2435DFD600C1C82E /* String+CountryFlag.swift */; };
 		F30764782435DFD800C1C82E /* UIImage+Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F307645F2435DFD600C1C82E /* UIImage+Alignment.swift */; };
@@ -65,6 +65,13 @@
 		F36B683A243872D40018B116 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36B6839243872D40018B116 /* APIResponse.swift */; };
 		F36B683C2438744F0018B116 /* UIColor+MedLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36B683B2438744F0018B116 /* UIColor+MedLog.swift */; };
 		F36B683F243D87350018B116 /* MedLogAPI.json in Resources */ = {isa = PBXBuildFile; fileRef = F36B683E243D87350018B116 /* MedLogAPI.json */; };
+		F3C2815D2445D5B000630B44 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3C2815C2445D5B000630B44 /* Colors.xcassets */; };
+		F3C2815F2445D7C300630B44 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2815E2445D7C300630B44 /* BaseViewController.swift */; };
+		F3C281612445D7E000630B44 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C281602445D7E000630B44 /* LoginViewController.swift */; };
+		F3C281632445D7FD00630B44 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C281622445D7FD00630B44 /* RegisterViewController.swift */; };
+		F3C281652445D81100630B44 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C281642445D81100630B44 /* ForgotPasswordViewController.swift */; };
+		F3C281672445D96B00630B44 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C281662445D96B00630B44 /* LaunchViewController.swift */; };
+		F3C2816F2447343E00630B44 /* UIViewController+BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2816E2447343E00630B44 /* UIViewController+BackButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,7 +95,7 @@
 		F30764202435C7AB00C1C82E /* BiometricAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricAuth.swift; sourceTree = "<group>"; };
 		F30764212435C7AB00C1C82E /* KeyChainSecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChainSecurity.swift; sourceTree = "<group>"; };
 		F30764222435C7AB00C1C82E /* ManagedCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedCollection.swift; sourceTree = "<group>"; };
-		F307645C2435DFD600C1C82E /* URL+Lokto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Lokto.swift"; sourceTree = "<group>"; };
+		F307645C2435DFD600C1C82E /* URL+Medlog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Medlog.swift"; sourceTree = "<group>"; };
 		F307645D2435DFD600C1C82E /* UIImage+ColorExtraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ColorExtraction.swift"; sourceTree = "<group>"; };
 		F307645E2435DFD600C1C82E /* String+CountryFlag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+CountryFlag.swift"; sourceTree = "<group>"; };
 		F307645F2435DFD600C1C82E /* UIImage+Alignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Alignment.swift"; sourceTree = "<group>"; };
@@ -130,6 +137,13 @@
 		F36B6839243872D40018B116 /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		F36B683B2438744F0018B116 /* UIColor+MedLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+MedLog.swift"; sourceTree = "<group>"; };
 		F36B683E243D87350018B116 /* MedLogAPI.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MedLogAPI.json; sourceTree = "<group>"; };
+		F3C2815C2445D5B000630B44 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		F3C2815E2445D7C300630B44 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F3C281602445D7E000630B44 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F3C281622445D7FD00630B44 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F3C281642445D81100630B44 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		F3C281662445D96B00630B44 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		F3C2816E2447343E00630B44 /* UIViewController+BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+BackButton.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +213,7 @@
 			children = (
 				F30763F424346D0200C1C82E /* AppDelegate.swift */,
 				F30763FD24346D0500C1C82E /* Assets.xcassets */,
+				F3C2815C2445D5B000630B44 /* Colors.xcassets */,
 				F307640224346D0500C1C82E /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -216,6 +231,11 @@
 		F307640A2434798000C1C82E /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F3C2815E2445D7C300630B44 /* BaseViewController.swift */,
+				F3C281602445D7E000630B44 /* LoginViewController.swift */,
+				F3C281622445D7FD00630B44 /* RegisterViewController.swift */,
+				F3C281642445D81100630B44 /* ForgotPasswordViewController.swift */,
+				F3C281662445D96B00630B44 /* LaunchViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -304,8 +324,9 @@
 				F30764642435DFD700C1C82E /* UITextField+Password.swift */,
 				F30764692435DFD700C1C82E /* UIView+DropShadow.swift */,
 				F30764622435DFD600C1C82E /* UIView+Transition.swift */,
-				F307645C2435DFD600C1C82E /* URL+Lokto.swift */,
+				F307645C2435DFD600C1C82E /* URL+Medlog.swift */,
 				F36B683B2438744F0018B116 /* UIColor+MedLog.swift */,
+				F3C2816E2447343E00630B44 /* UIViewController+BackButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -400,6 +421,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3C2815D2445D5B000630B44 /* Colors.xcassets in Resources */,
 				F36B683F243D87350018B116 /* MedLogAPI.json in Resources */,
 				F307640124346D0500C1C82E /* LaunchScreen.storyboard in Resources */,
 				F30763FE24346D0500C1C82E /* Assets.xcassets in Resources */,
@@ -461,15 +483,17 @@
 				F30764772435DFD800C1C82E /* String+CountryFlag.swift in Sources */,
 				F30764A82435E05400C1C82E /* SegmentedControl.swift in Sources */,
 				F30764992435E00C00C1C82E /* APIServiceJSONMock.swift in Sources */,
+				F3C2815F2445D7C300630B44 /* BaseViewController.swift in Sources */,
 				F30764252435C7AB00C1C82E /* KeyChainSecurity.swift in Sources */,
 				F30763F524346D0200C1C82E /* AppDelegate.swift in Sources */,
 				F30764A72435E05400C1C82E /* CircularProgressView.swift in Sources */,
 				F30764852435DFD800C1C82E /* String+AppValidation.swift in Sources */,
 				F307648A2435DFD800C1C82E /* UIControl+ClosureAction.swift in Sources */,
+				F3C281672445D96B00630B44 /* LaunchViewController.swift in Sources */,
 				F30764232435C7AB00C1C82E /* APIAccessToken.swift in Sources */,
 				F30764142435C69B00C1C82E /* Fileable.swift in Sources */,
 				F30764122435C68C00C1C82E /* File.swift in Sources */,
-				F30764752435DFD800C1C82E /* URL+Lokto.swift in Sources */,
+				F30764752435DFD800C1C82E /* URL+Medlog.swift in Sources */,
 				F30764242435C7AB00C1C82E /* BiometricAuth.swift in Sources */,
 				F36B683C2438744F0018B116 /* UIColor+MedLog.swift in Sources */,
 				F30764802435DFD800C1C82E /* String+Crypto.swift in Sources */,
@@ -481,6 +505,7 @@
 				F30764862435DFD800C1C82E /* String+Lokto.swift in Sources */,
 				F30764162435C6AF00C1C82E /* Hospital.swift in Sources */,
 				F30764792435DFD800C1C82E /* String+Localization.swift in Sources */,
+				F3C281652445D81100630B44 /* ForgotPasswordViewController.swift in Sources */,
 				F307647E2435DFD800C1C82E /* Timer+AppIntervals.swift in Sources */,
 				F30764102435C66000C1C82E /* Department.swift in Sources */,
 				F30764AB2435E05400C1C82E /* ActiveTextField.swift in Sources */,
@@ -498,13 +523,16 @@
 				F307647A2435DFD800C1C82E /* Date+Additions.swift in Sources */,
 				F307641A2435C6D600C1C82E /* User.swift in Sources */,
 				F30764842435DFD800C1C82E /* Encodable+Any.swift in Sources */,
+				F3C281612445D7E000630B44 /* LoginViewController.swift in Sources */,
 				F307649B2435E00C00C1C82E /* APIServiceCORERequest.swift in Sources */,
 				F307647B2435DFD800C1C82E /* UIView+Transition.swift in Sources */,
 				F30764812435DFD800C1C82E /* Double+Formats.swift in Sources */,
 				F307649A2435E00C00C1C82E /* APIServiceProtocol.swift in Sources */,
 				F30764262435C7AB00C1C82E /* ManagedCollection.swift in Sources */,
 				F307649C2435E00C00C1C82E /* APICoreRequest.swift in Sources */,
+				F3C2816F2447343E00630B44 /* UIViewController+BackButton.swift in Sources */,
 				F307648C2435DFD800C1C82E /* UIImage+ColorMask.swift in Sources */,
+				F3C281632445D7FD00630B44 /* RegisterViewController.swift in Sources */,
 				F307647C2435DFD800C1C82E /* UIApplication+RootView.swift in Sources */,
 				F30764AE2435E05400C1C82E /* ArrowButton.swift in Sources */,
 				F30764822435DFD800C1C82E /* UIView+DropShadow.swift in Sources */,

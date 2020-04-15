@@ -12,13 +12,13 @@ class TextButton: UIButton {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = .blue
+        self.backgroundColor = .primary
         self.layer.cornerRadius = 5
     }
     
     override open var isEnabled: Bool {
         didSet {
-            self.backgroundColor = self.isEnabled == true ? .blue : .lightGray
+            self.backgroundColor = self.isEnabled == true ? .primary : .lightGray
         }
     }
 }
