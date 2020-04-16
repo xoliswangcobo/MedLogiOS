@@ -24,7 +24,7 @@ class LaunchViewController: UIViewController {
             let repository:Repository = Repository.init(service: service)
             
             let loginViewController = loginNavigationController.topViewController as! LoginViewController
-            loginViewController.loginViewModel = LoginViewModel.init(repository: repository)
+            loginViewController.viewModel = LoginViewModel.init(repository: repository)
             
             UIApplication.setRootView(loginNavigationController, options: .transitionCrossDissolve)
         }

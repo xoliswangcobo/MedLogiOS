@@ -16,10 +16,10 @@ class LoginViewModel {
         case Success
     }
     
-    private var repository:Repository
+    var repository:Repository
     
-    var username: Observable<String?> = Observable<String?>("dsgd")
-    var password: Observable<String?> = Observable<String?>("dfg")
+    var username: Observable<String?> = Observable<String?>("")
+    var password: Observable<String?> = Observable<String?>("")
     
     init(repository:Repository) {
         self.repository = repository

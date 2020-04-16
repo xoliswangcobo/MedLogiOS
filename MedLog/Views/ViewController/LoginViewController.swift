@@ -17,13 +17,16 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var username: SkyFloatingLabelTextField!
     @IBOutlet weak var password: SkyFloatingLabelTextField!
     
-    var loginViewModel:LoginViewModel!
+    var viewModel:LoginViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let _ = self.loginButton.reactive.controlEvents(.touchUpInside).observeNext { e in
-            self.loginViewModel.authenticate() { status in
+        self.setUpBinding()
+    }
+
+    func setUpBinding() {
+        self.loginButton.reactive.controlEvents(.touchUpInside).observeNext { e in
+            self.viewModel.authenticate() { status in
                 switch status {
                     case .Success:
                         let alertController = UIAlertController.init(title: "Login", message: "Login Success", preferredStyle: .alert)
@@ -35,14 +38,20 @@ class LoginViewController: BaseViewController {
                         self.present(alertController, animated: true)
                 }
             }
-        }
+        }.dispose()
         
-        self.loginViewModel.username.bidirectionalBind(to: self.username.reactive.text)
-        self.loginViewModel.password.bidirectionalBind(to: self.password.reactive.text)
+        self.viewModel.username.bidirectionalBind(to: self.username.reactive.text).dispose()
+        self.viewModel.password.bidirectionalBind(to: self.password.reactive.text).dispose()
         
         combineLatest(self.username.reactive.text, self.password.reactive.text) { email, pass in
             return ((email?.count ?? 0) > 0) && ((pass?.count ?? 0) > 0)
-        }.bind(to: self.loginButton.reactive.isEnabled)
+        }.bind(to: self.loginButton.reactive.isEnabled).dispose()
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSignUp" {
+            let registrationController = segue.destination as! RegisterViewController
+            registrationController.viewModel = .init(repository: self.viewModel.repository)
+        }
+    }
 }

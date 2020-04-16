@@ -159,7 +159,7 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="e0u-8Z-B9u">
                     <connections>
-                        <segue destination="ntk-ik-41S" kind="show" id="gPE-Ke-CT2"/>
+                        <segue destination="ntk-ik-41S" kind="show" identifier="toSignUp" id="gPE-Ke-CT2"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -259,7 +259,7 @@
                                                             <constraint firstAttribute="width" secondItem="xjU-Fc-F4K" secondAttribute="height" multiplier="10:1.5" id="8eg-VC-QOp"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="send" secureTextEntry="YES" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="password"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
                                                                 <real key="value" value="2"/>
@@ -278,7 +278,7 @@
                                                             <constraint firstAttribute="width" secondItem="XXJ-k3-H56" secondAttribute="height" multiplier="10:1.5" id="tjG-d1-oIP"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="send" secureTextEntry="YES" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="name"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
                                                                 <real key="value" value="2"/>
@@ -297,7 +297,7 @@
                                                             <constraint firstAttribute="width" secondItem="VEF-f1-1LP" secondAttribute="height" multiplier="10:1.5" id="fFC-xa-EQk"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="send" secureTextEntry="YES" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="family-name"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
                                                                 <real key="value" value="2"/>
@@ -316,7 +316,7 @@
                                                             <constraint firstAttribute="width" secondItem="WfE-b1-Ezp" secondAttribute="height" multiplier="10:1.5" id="R9u-QU-iRj"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="send" secureTextEntry="YES" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="tel"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
                                                                 <real key="value" value="2"/>
@@ -335,7 +335,7 @@
                                                             <constraint firstAttribute="width" secondItem="ffv-kh-f4o" secondAttribute="height" multiplier="10:1.5" id="bJD-ZH-yIc"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="send" secureTextEntry="YES" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="country-name"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
                                                                 <real key="value" value="2"/>
@@ -354,7 +354,7 @@
                                                             <constraint firstAttribute="width" secondItem="xPp-3t-boh" secondAttribute="height" multiplier="10:1.5" id="IxH-Pf-2Sj"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="send" secureTextEntry="YES" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="go"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
                                                                 <real key="value" value="2"/>
@@ -455,6 +455,16 @@
                         <viewLayoutGuide key="safeArea" id="sJt-sN-elJ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Register" id="URe-xa-6Uo"/>
+                    <connections>
+                        <outlet property="country" destination="ffv-kh-f4o" id="hYg-Dv-Ucq"/>
+                        <outlet property="firtname" destination="XXJ-k3-H56" id="OML-6k-5gO"/>
+                        <outlet property="language" destination="xPp-3t-boh" id="Az8-9J-kOt"/>
+                        <outlet property="lastname" destination="VEF-f1-1LP" id="xuS-mY-uu7"/>
+                        <outlet property="mobile" destination="WfE-b1-Ezp" id="vsK-KI-VSJ"/>
+                        <outlet property="password" destination="xjU-Fc-F4K" id="q4W-gq-Pkp"/>
+                        <outlet property="registerButton" destination="qCk-6r-zAL" id="MKr-Vd-FXn"/>
+                        <outlet property="username" destination="btE-Dw-MVx" id="Rw1-5K-8Zw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VzF-3N-KpK" sceneMemberID="firstResponder"/>
             </objects>
