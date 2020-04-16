@@ -38,7 +38,10 @@ class LoginViewModel {
     }
     
     func validate() -> Bool {
+        guard let username = self.username.value, let password = self.password.value else {
+            return false
+        }
         
-        return true
+        return username.isNotEmpty && password.isNotEmpty
     }
 }

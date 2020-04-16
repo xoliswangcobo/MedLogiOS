@@ -24,34 +24,41 @@ class LoginViewController: BaseViewController {
         self.setUpBinding()
     }
 
-    func setUpBinding() {
-        let _ = self.loginButton.reactive.controlEvents(.touchUpInside).observeNext { e in
-            self.viewModel.authenticate() { status in
-                switch status {
-                    case .Success:
-                        let alertController = UIAlertController.init(title: "Login", message: "Login Success", preferredStyle: .alert)
-                        alertController.addAction(.init(title: "Dismiss", style: .default))
-                        self.present(alertController, animated: true)
-                    case .Failed(let message):
-                        let alertController = UIAlertController.init(title: "Login", message: message, preferredStyle: .alert)
-                        alertController.addAction(.init(title: "Dismiss", style: .default))
-                        self.present(alertController, animated: true)
-                }
-            }
-        }
-        
+    private func setUpBinding() {
         self.viewModel.username.bidirectionalBind(to: self.username.reactive.text)
         self.viewModel.password.bidirectionalBind(to: self.password.reactive.text)
         
         combineLatest(self.username.reactive.text, self.password.reactive.text) { email, pass in
-            return ((email?.count ?? 0) > 0) && ((pass?.count ?? 0) > 0)
+            return self.viewModel.validate()
         }.bind(to: self.loginButton.reactive.isEnabled)
+        
+        let _ = self.loginButton.reactive.controlEvents(.touchUpInside).observeNext { e in
+            self.authenticate()
+        }
+    }
+    
+    @IBAction func authenticate() {
+        self.viewModel.authenticate() { status in
+            switch status {
+                case .Success:
+                    let alertController = UIAlertController.init(title: "Login", message: "Login Success", preferredStyle: .alert)
+                    alertController.addAction(.init(title: "Dismiss", style: .default))
+                    self.present(alertController, animated: true)
+                case .Failed(let message):
+                    let alertController = UIAlertController.init(title: "Login", message: message, preferredStyle: .alert)
+                    alertController.addAction(.init(title: "Dismiss", style: .default))
+                    self.present(alertController, animated: true)
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSignUp" {
             let registrationController = segue.destination as! RegisterViewController
             registrationController.viewModel = .init(repository: self.viewModel.repository)
+        } else if segue.identifier == "toForgotPassword" {
+            let forgotPasswordController = segue.destination as! ForgotPasswordViewController
+            forgotPasswordController.viewModel = .init(repository: self.viewModel.repository)
         }
     }
 }

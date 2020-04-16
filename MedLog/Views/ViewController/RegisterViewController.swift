@@ -26,11 +26,10 @@ class RegisterViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.setUpBinding()
     }
     
-    func setUpBinding() {
+    private func setUpBinding() {
         self.viewModel.email.bidirectionalBind(to: self.username.reactive.text)
         self.viewModel.password.bidirectionalBind(to: self.password.reactive.text)
         self.viewModel.firstname.bidirectionalBind(to: self.firtname.reactive.text)

@@ -71,4 +71,32 @@ class Repository {
             completionHandler(error)
             } as ((Error?, APIClientResponse?) -> Void))
     }
+    
+    func resetPasswordSend(email: String, completionHandler:@escaping ((Error?) -> Void)) {
+        
+        struct ResetPasswordClient: NetworkClientProtocol {
+            
+            let email: String
+            
+            func parameters() -> [String : Any]? {
+                return [ "email" : self.email ]
+            }
+            
+            func url() -> URL {
+                return URL(string: "/api/users/reset")!
+            }
+            
+            func method() -> HTTPRequestMethod {
+                return .POST
+            }
+            
+            func encoding() -> HTTPContentType {
+                return .application_json
+            }
+        }
+        
+        self.servive.execute(client: ResetPasswordClient(email: email), responseHandler: { error, response in
+            completionHandler(error)
+            } as ((Error?, APIClientResponse?) -> Void))
+    }
 }

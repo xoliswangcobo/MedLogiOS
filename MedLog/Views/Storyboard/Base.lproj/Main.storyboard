@@ -160,7 +160,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="X2O-6r-X29">
                     <connections>
-                        <segue destination="3ej-Yo-T1u" kind="show" id="4La-J3-iJi"/>
+                        <segue destination="3ej-Yo-T1u" kind="show" identifier="toForgotPassword" id="4La-J3-iJi"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="e0u-8Z-B9u">
@@ -500,7 +500,7 @@
         <!--Forgot Password-->
         <scene sceneID="4nG-p3-2wE">
             <objects>
-                <viewController id="3ej-Yo-T1u" customClass="LoginViewController" customModule="MedLog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3ej-Yo-T1u" customClass="ForgotPasswordViewController" customModule="MedLog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="auM-Yc-Ipz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -591,6 +591,10 @@
                         <viewLayoutGuide key="safeArea" id="ViK-2W-1ms"/>
                     </view>
                     <navigationItem key="navigationItem" title="Forgot Password" id="220-WU-nLy"/>
+                    <connections>
+                        <outlet property="email" destination="qns-Ap-boC" id="RFF-fV-LI8"/>
+                        <outlet property="sendForgotPasswordButton" destination="ozG-2l-Udx" id="WCH-9h-oKM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BVW-xM-JfO" sceneMemberID="firstResponder"/>
             </objects>
