@@ -224,16 +224,16 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F30764092434797400C1C82E /* Storyboard */ = {
+		F30764092434797400C1C82E /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				F30763FF24346D0500C1C82E /* LaunchScreen.storyboard */,
 				F30763FA24346D0200C1C82E /* Main.storyboard */,
 			);
-			path = Storyboard;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		F307640A2434798000C1C82E /* ViewController */ = {
+		F307640A2434798000C1C82E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				F3C2815E2445D7C300630B44 /* BaseViewController.swift */,
@@ -242,7 +242,7 @@
 				F3C281642445D81100630B44 /* ForgotPasswordViewController.swift */,
 				F3C281662445D96B00630B44 /* LaunchViewController.swift */,
 			);
-			path = ViewController;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		F307640C243479B700C1C82E /* Models */ = {
@@ -279,9 +279,9 @@
 		F307640E243479FA00C1C82E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F345307D244769F500574471 /* CustomView */,
-				F307640A2434798000C1C82E /* ViewController */,
-				F30764092434797400C1C82E /* Storyboard */,
+				F345307D244769F500574471 /* CustomViews */,
+				F307640A2434798000C1C82E /* ViewControllers */,
+				F30764092434797400C1C82E /* Storyboards */,
 				F307640D243479E900C1C82E /* Controls */,
 			);
 			path = Views;
@@ -379,11 +379,11 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		F345307D244769F500574471 /* CustomView */ = {
+		F345307D244769F500574471 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = CustomView;
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		F345307E24476A2000574471 /* Assets */ = {
