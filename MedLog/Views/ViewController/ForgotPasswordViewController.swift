@@ -30,11 +30,10 @@ class ForgotPasswordViewController: BaseViewController {
             self.sendForgotPasswordButton.isEnabled = self.viewModel.validate()
         }
         
-        let _ = self.sendForgotPasswordButton.reactive.controlEvents(.touchUpInside).observeNext { e in
+        let _ = self.sendForgotPasswordButton.reactive.controlEvents(.touchUpInside).observeNext {
             self.forgotPasswordSend()
         }
     }
-    
     
     @IBAction func forgotPasswordSend() {
         self.viewModel.sendResetPassword { (status) in

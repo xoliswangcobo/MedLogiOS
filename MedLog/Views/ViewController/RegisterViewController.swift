@@ -46,7 +46,7 @@ class RegisterViewController: BaseViewController {
             return self.viewModel.validate()
         }.bind(to: self.registerButton.reactive.isEnabled)
         
-        let _ = self.registerButton.reactive.controlEvents(.touchUpInside).observeNext { e in
+        let _ = self.registerButton.reactive.controlEvents(.touchUpInside).observeNext {
             self.register()
         }
     }

@@ -32,7 +32,7 @@ class LoginViewController: BaseViewController {
             return self.viewModel.validate()
         }.bind(to: self.loginButton.reactive.isEnabled)
         
-        let _ = self.loginButton.reactive.controlEvents(.touchUpInside).observeNext { e in
+        let _ = self.loginButton.reactive.controlEvents(.touchUpInside).observeNext {
             self.authenticate()
         }
     }
