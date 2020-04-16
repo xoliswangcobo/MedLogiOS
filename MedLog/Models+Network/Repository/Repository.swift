@@ -67,8 +67,8 @@ class Repository {
             }
         }
         
-        self.servive.execute(client: SignUpClient(user: user)) { error, response in
+        self.servive.execute(client: SignUpClient(user: user), responseHandler: { error, response in
             completionHandler(error)
-        }
+            } as ((Error?, APIClientResponse?) -> Void))
     }
 }

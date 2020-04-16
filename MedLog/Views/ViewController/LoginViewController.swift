@@ -25,7 +25,7 @@ class LoginViewController: BaseViewController {
     }
 
     func setUpBinding() {
-        self.loginButton.reactive.controlEvents(.touchUpInside).observeNext { e in
+        let _ = self.loginButton.reactive.controlEvents(.touchUpInside).observeNext { e in
             self.viewModel.authenticate() { status in
                 switch status {
                     case .Success:
@@ -38,14 +38,14 @@ class LoginViewController: BaseViewController {
                         self.present(alertController, animated: true)
                 }
             }
-        }.dispose()
+        }
         
-        self.viewModel.username.bidirectionalBind(to: self.username.reactive.text).dispose()
-        self.viewModel.password.bidirectionalBind(to: self.password.reactive.text).dispose()
+        self.viewModel.username.bidirectionalBind(to: self.username.reactive.text)
+        self.viewModel.password.bidirectionalBind(to: self.password.reactive.text)
         
         combineLatest(self.username.reactive.text, self.password.reactive.text) { email, pass in
             return ((email?.count ?? 0) > 0) && ((pass?.count ?? 0) > 0)
-        }.bind(to: self.loginButton.reactive.isEnabled).dispose()
+        }.bind(to: self.loginButton.reactive.isEnabled)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

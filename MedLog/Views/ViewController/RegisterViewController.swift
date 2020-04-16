@@ -31,33 +31,38 @@ class RegisterViewController: BaseViewController {
     }
     
     func setUpBinding() {
+        self.viewModel.email.bidirectionalBind(to: self.username.reactive.text)
+        self.viewModel.password.bidirectionalBind(to: self.password.reactive.text)
+        self.viewModel.firstname.bidirectionalBind(to: self.firtname.reactive.text)
+        self.viewModel.lastname.bidirectionalBind(to: self.lastname.reactive.text)
+        self.viewModel.mobile.bidirectionalBind(to: self.mobile.reactive.text)
+        self.viewModel.language.bidirectionalBind(to: self.language.reactive.text)
+        self.viewModel.country.bidirectionalBind(to: self.country.reactive.text)
+        
         combineLatest(self.username.reactive.text, self.password.reactive.text, self.firtname.reactive.text, self.lastname.reactive.text) { email, pass, firstname, lastname in
-            self.viewModel.user.email = email
-            self.viewModel.user.password = pass
-            self.viewModel.user.firstname = firstname
-            self.viewModel.user.lastname = lastname
             return self.viewModel.validate()
         }.bind(to: self.registerButton.reactive.isEnabled)
         
         combineLatest(self.mobile.reactive.text, self.country.reactive.text, self.language.reactive.text) { mobile, country, language in
-            self.viewModel.user.mobile = mobile
-            self.viewModel.user.country = country
-            self.viewModel.user.language = language
             return self.viewModel.validate()
         }.bind(to: self.registerButton.reactive.isEnabled)
         
         let _ = self.registerButton.reactive.controlEvents(.touchUpInside).observeNext { e in
-            self.viewModel.register { status in
-                switch status {
-                    case .Success:
-                        let alertController = UIAlertController.init(title: "Sign Up", message: "Registration Success", preferredStyle: .alert)
-                        alertController.addAction(.init(title: "Dismiss", style: .default))
-                        self.present(alertController, animated: true)
-                    case .Failed(let message):
-                        let alertController = UIAlertController.init(title: "Sign Up", message: message, preferredStyle: .alert)
-                        alertController.addAction(.init(title: "Dismiss", style: .default))
-                        self.present(alertController, animated: true)
-                }
+            self.register()
+        }
+    }
+    
+    @IBAction func register() {
+        self.viewModel.register { status in
+            switch status {
+                case .Success:
+                    let alertController = UIAlertController.init(title: "Sign Up", message: "Registration Success", preferredStyle: .alert)
+                    alertController.addAction(.init(title: "Dismiss", style: .default))
+                    self.present(alertController, animated: true)
+                case .Failed(let message):
+                    let alertController = UIAlertController.init(title: "Sign Up", message: message, preferredStyle: .alert)
+                    alertController.addAction(.init(title: "Dismiss", style: .default))
+                    self.present(alertController, animated: true)
             }
         }
     }

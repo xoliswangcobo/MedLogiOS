@@ -7,16 +7,7 @@
 //
 
 import Foundation
-
-struct UserDetails: Encodable {
-    var email: String?
-    var password: String?
-    var firstname: String?
-    var lastname: String?
-    var mobile: String?
-    var country: String?
-    var language: String?
-}
+import Bond
 
 class SignUpViewModel {
     
@@ -27,19 +18,31 @@ class SignUpViewModel {
     
     var repository:Repository
     
-    var user = UserDetails()
-    var languages:[(code:String, name:String)] = [(name:"South Africa", code:"ZA")]
-    var countries:[(code:String, name:String)] = [(name:"English", code:"en"), (name:"IsiZulu", code:"zu")]
+    var countries:[(code:String, name:String)] = [(name:"South Africa", code:"ZA")]
+    var languages:[(code:String, name:String)] = [(name:"English", code:"en"), (name:"IsiZulu", code:"zu")]
+    
+    var email: Observable<String?> = Observable<String?>("ngcobox@gmail.com")
+    var password: Observable<String?> = Observable<String?>("12345")
+    var firstname: Observable<String?> = Observable<String?>("Xoliswa")
+    var lastname: Observable<String?> = Observable<String?>("Ngcobo")
+    var mobile: Observable<String?> = Observable<String?>("+27833374192")
+    var country: Observable<String?> = Observable<String?>("South Africa")
+    var language: Observable<String?> = Observable<String?>("English")
     
     init(repository:Repository) {
         self.repository = repository
     }
     
     func register(completion:((SignUpStatus) -> Void)?) {
-        guard let details = UserDetails.encode(decoded: self.user) as? [String : Any] else {
-            completion?(.Failed("Sign up failed"))
-            return
-        }
+        let details:[String:Any] = [
+            "email" : self.email.value as Any,
+            "password" : self.password.value as Any,
+            "firstname" : self.firstname.value as Any,
+            "lastname" : self.lastname.value as Any,
+            "mobile" : self.mobile.value as Any,
+            "country_code" : self.countries.filter({ $0.name == self.country.value }).first?.code as Any,
+            "language_code" : self.languages.filter({ $0.name == self.language.value }).first?.code as Any
+        ]
         
         self.repository.regiter(user: details) { error in
             if error == nil {
@@ -51,18 +54,10 @@ class SignUpViewModel {
     }
     
     func validate() -> Bool {
-        guard let email = self.user.email, let password = self.user.password, let firstname = self.user.firstname, let lastname = self.user.lastname, let mobile = self.user.mobile else {
+        guard let email = self.email.value, let password = self.password.value, let firstname = self.firstname.value, let lastname = self.lastname.value, let mobile = self.mobile.value, let language = self.language.value, let country = self.country.value else {
             return false
         }
-        
-        if let country = self.user.country {
-            self.user.country = self.countries.filter({ $0.name == country}).first?.code
-        }
-        
-        if let language = self.user.language {
-            self.user.language = self.languages.filter({ $0.name == language}).first?.code
-        }
-        
-        return email.isNotEmpty && password.isNotEmpty && firstname.isNotEmpty && lastname.isNotEmpty && mobile.isNotEmpty
+
+        return (email.isNotEmpty && password.isNotEmpty && firstname.isNotEmpty && lastname.isNotEmpty && mobile.isNotEmpty && country.isNotEmpty && language.isNotEmpty)
     }
 }
