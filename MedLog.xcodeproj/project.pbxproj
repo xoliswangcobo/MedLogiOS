@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A3EF40E1673654187796546A /* Pods_MedLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB9843966561D90B784496F /* Pods_MedLog.framework */; };
 		F30763F524346D0200C1C82E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30763F424346D0200C1C82E /* AppDelegate.swift */; };
-		F30763FC24346D0200C1C82E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F30763FA24346D0200C1C82E /* Main.storyboard */; };
+		F30763FC24346D0200C1C82E /* Startup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F30763FA24346D0200C1C82E /* Startup.storyboard */; };
 		F30763FE24346D0500C1C82E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F30763FD24346D0500C1C82E /* Assets.xcassets */; };
 		F307640124346D0500C1C82E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F30763FF24346D0500C1C82E /* LaunchScreen.storyboard */; };
 		F30764102435C66000C1C82E /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = F307640F2435C66000C1C82E /* Department.swift */; };
@@ -84,7 +84,7 @@
 		CBCFF415527C51EE6804C415 /* Pods-MedLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedLog.release.xcconfig"; path = "Target Support Files/Pods-MedLog/Pods-MedLog.release.xcconfig"; sourceTree = "<group>"; };
 		F30763F124346D0200C1C82E /* MedLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30763F424346D0200C1C82E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F30763FB24346D0200C1C82E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F30763FB24346D0200C1C82E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Startup.storyboard; sourceTree = "<group>"; };
 		F30763FD24346D0500C1C82E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F307640024346D0500C1C82E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F307640224346D0500C1C82E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -228,7 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				F30763FF24346D0500C1C82E /* LaunchScreen.storyboard */,
-				F30763FA24346D0200C1C82E /* Main.storyboard */,
+				F30763FA24346D0200C1C82E /* Startup.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -477,7 +477,7 @@
 				F36B683F243D87350018B116 /* MedLogAPI.json in Resources */,
 				F307640124346D0500C1C82E /* LaunchScreen.storyboard in Resources */,
 				F30763FE24346D0500C1C82E /* Assets.xcassets in Resources */,
-				F30763FC24346D0200C1C82E /* Main.storyboard in Resources */,
+				F30763FC24346D0200C1C82E /* Startup.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,12 +599,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F30763FA24346D0200C1C82E /* Main.storyboard */ = {
+		F30763FA24346D0200C1C82E /* Startup.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F30763FB24346D0200C1C82E /* Base */,
 			);
-			name = Main.storyboard;
+			name = Startup.storyboard;
 			sourceTree = "<group>";
 		};
 		F30763FF24346D0500C1C82E /* LaunchScreen.storyboard */ = {
