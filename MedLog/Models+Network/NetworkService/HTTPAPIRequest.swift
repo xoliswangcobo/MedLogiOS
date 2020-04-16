@@ -1,5 +1,5 @@
 //
-//  APICoreRequest.swift
+//  HTTPAPIRequest.swift
 //  MedLog
 //
 //  Created by Xoliswa on 2020/01/01.
@@ -11,7 +11,7 @@
 import Foundation
 
 
-class APICoreRequest {
+class HTTPAPIRequest {
     
     private var host: URL
     private var path: URL = .none
@@ -24,21 +24,21 @@ class APICoreRequest {
         self.host = host
     }
     
-    class func request(host: URL) -> APICoreRequest {
-        return APICoreRequest.init(host: host)
+    class func request(host: URL) -> HTTPAPIRequest {
+        return HTTPAPIRequest.init(host: host)
     }
     
-    func setPath(_ path: URL) -> APICoreRequest {
+    func setPath(_ path: URL) -> HTTPAPIRequest {
         self.path = path
         return self
     }
     
-    func setHTTPHeaders(_ headers: [String : String]) -> APICoreRequest {
+    func setHTTPHeaders(_ headers: [String : String]) -> HTTPAPIRequest {
         self.headers.merge(headers) { _, new  in new } // Latest values are kept
         return self
     }
     
-    func setParameters(_ parameters: [String : Any]?) -> APICoreRequest {
+    func setParameters(_ parameters: [String : Any]?) -> HTTPAPIRequest {
         if parameters != nil {
             self.parameters.merge(parameters!) { _, new  in new } // Latest values are kept
         }
@@ -46,12 +46,12 @@ class APICoreRequest {
         return self
     }
     
-    func setHttpMethod(_ method: HTTPRequestMethod) -> APICoreRequest {
+    func setHttpMethod(_ method: HTTPRequestMethod) -> HTTPAPIRequest {
         self.method = method
         return self
     }
     
-    func setHttpEncoding(_ encoding: HTTPContentType) -> APICoreRequest {
+    func setHttpEncoding(_ encoding: HTTPContentType) -> HTTPAPIRequest {
         self.encoding = encoding
         return self
     }
@@ -59,7 +59,7 @@ class APICoreRequest {
     func execute(uploadData: Data? = nil, completion: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask? {
         
         var components = URLComponents(url: self.host, resolvingAgainstBaseURL: true)!
-        components.path = self.path.absoluteString
+        components.path = components.path + self.path.absoluteString
         guard let url = components.url else {
             completion(nil, nil, nil)
             return nil

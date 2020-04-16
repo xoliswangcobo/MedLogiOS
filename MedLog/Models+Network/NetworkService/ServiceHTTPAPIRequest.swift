@@ -1,5 +1,5 @@
 //
-//  APIServiceCORERequest.swift
+//  ServiceHTTPAPIRequest.swift
 //  MedLog
 //
 //  Created by Xoliswa on 2020/01/01.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class APIServiceCORERequest : APIServiceProtocol {
+class ServiceHTTPAPIRequest : NetworkServiceProtocol {
     
     var serviceHost: URL
     var authenticationToken: APIAccessToken?
@@ -22,31 +22,24 @@ class APIServiceCORERequest : APIServiceProtocol {
         self.refreshTokenHandler = tokenRefreshHandler
     }
     
-    private (set) static var sharedService: APIServiceCORERequest = APIServiceCORERequest(serviceHost: .baseURL)
-    
-    static func configureSharedService(serviceHost: URL, authenticationToken: APIAccessToken? = nil, tokenRefreshHandler: ((APIAccessToken?, ((Error?) -> Void)?) -> Void)? = nil) -> Void {
-        sharedService.serviceHost = serviceHost
-        sharedService.authenticationToken = authenticationToken
-        sharedService.refreshTokenHandler = tokenRefreshHandler
-    }
-    
-    func execute<Model : Decodable>(apiClient: APIClientProtocol, responseHandler: @escaping (Error?, Model?) -> Void) {
-        self.execute(apiClient: apiClient) { (error, response) in
+    func execute<Model : Decodable>(client: NetworkClientProtocol, responseHandler: @escaping (Error?, Model?) -> Void) {
+        self.execute(client: client) { (error, response) in
             if let theResponse = response {
-                let apiResponse:APIResponse<Model>? = Model.decode(theResponse)
+                let apiResponse:APIClientResponse? = APIClientResponse.decode(theResponse)
                 
-                if apiResponse?.success == true {
-                    responseHandler(nil, Model.decode(theResponse))
-                } else if apiResponse?.success == false {
-                    if let code =  apiResponse?.code, code > 0 {
-                        responseHandler(NSError.errorForCode(code: code), nil)
-                    } else if let message = apiResponse?.message, message != "" {
-                        responseHandler(NSError.errorForMessage(message: message), nil)
-                    } else {
-                        responseHandler(NSError.errorForCode(code: 0), nil)
-                    }
-                } else {
-                    responseHandler(error, Model.decode(theResponse))
+                switch apiResponse?.status {
+                    case .Success:
+                        responseHandler(nil, Model.decode(theResponse))
+                    case .Failed(let message):
+                        if let code =  apiResponse?.code, code > 0 {
+                            responseHandler(NSError.errorForCode(code: code), nil)
+                        } else if message.isNotEmpty {
+                            responseHandler(NSError.errorForMessage(message: message), nil)
+                        } else {
+                            responseHandler(NSError.errorForCode(code: 0), nil)
+                        }
+                    default:
+                        responseHandler(error, Model.decode(theResponse))
                 }
             } else {
                 responseHandler(error, nil)
@@ -54,15 +47,15 @@ class APIServiceCORERequest : APIServiceProtocol {
         }
     }
     
-    func execute(apiClient: APIClientProtocol, responseHandler: @escaping (Error?, Any?) -> Void) {
+    func execute(client: NetworkClientProtocol, responseHandler: @escaping (Error?, Any?) -> Void) {
         
-        guard let httpMethod: HTTPRequestMethod = HTTPRequestMethod(rawValue: apiClient.method().rawValue) else  {
+        guard let httpMethod: HTTPRequestMethod = HTTPRequestMethod(rawValue: client.method().rawValue) else  {
             return
         }
         
-        var httpHeaders: [String : String] = apiClient.extraHeaders() ?? [:]
+        var httpHeaders: [String : String] = client.extraHeaders() ?? [:]
         
-        httpHeaders["Accept"] = apiClient.acceptType().rawValue
+        httpHeaders["Accept"] = client.acceptType().rawValue
     
         if let accessToken = self.authenticationToken {
             if let accessTokenValue = accessToken.accessToken {
@@ -70,13 +63,13 @@ class APIServiceCORERequest : APIServiceProtocol {
             }
         }
         
-        let parameterEncoding = apiClient.encoding()
+        let parameterEncoding = client.encoding()
         
         let responseProcessor = { (data: Data?, response: URLResponse?, error: Error?) in
             if let theResponseData = data {
                 do {
                     let responseObject = try JSONSerialization.jsonObject(with: theResponseData, options: [])
-                    print("APICore Response: \(String(format: "%@%@ -: %@", self.serviceHost.absoluteString, apiClient.url().absoluteString, (responseObject as? [String : Any])?.jsonString() ?? ""))")
+                    print("APICore Response: \(String(format: "%@%@ -: %@", self.serviceHost.absoluteString, client.url().absoluteString, (responseObject as? [String : Any])?.jsonString() ?? ""))")
                     
                     if error != nil {
                         responseHandler(error, responseObject)
@@ -92,14 +85,14 @@ class APIServiceCORERequest : APIServiceProtocol {
         }
         
         let continueExecute:(() -> Void) = {
-            print("APICoreRequest: \(String(format: "%@%@ -: %@", self.serviceHost.absoluteString, apiClient.url().absoluteString, apiClient.parameters()?.jsonString() ?? ""))")
+            print("APICoreRequest: \(String(format: "%@%@ -: %@", self.serviceHost.absoluteString, client.url().absoluteString, client.parameters()?.jsonString() ?? ""))")
             
             // Need to store dataTask while token in some state
-            let _ = APICoreRequest.request(host: self.serviceHost)
-                .setPath(apiClient.url())
+            let _ = HTTPAPIRequest.request(host: self.serviceHost)
+                .setPath(client.url())
                 .setHttpMethod(httpMethod)
                 .setHttpEncoding(parameterEncoding)
-                .setParameters(apiClient.parameters())
+                .setParameters(client.parameters())
                 .setHTTPHeaders(httpHeaders)
                 .execute() { data, response, error in
                     responseProcessor(data, response, error)

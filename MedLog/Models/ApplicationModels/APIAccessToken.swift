@@ -17,7 +17,9 @@ class APIAccessToken : Codable {
     }
     
     fileprivate enum CodingKeys : String, CodingKey {
-        case accessToken, expiresIn
+        case accessToken = "access_token"
+        case expiresIn = "expires_in"
+        case tokenType = "token_type"
     }
     
     required public init(from decoder: Decoder) throws {

@@ -1,5 +1,5 @@
 //
-//  APIClientProtocol
+//  NetworkClientProtocol
 //  MedLog
 //
 //  Created by Xoliswa on 2020/01/01.
@@ -58,7 +58,7 @@ enum HTTPAcceptType: String {
     case text_plain = "text/plain"
 }
 
-protocol APIClientProtocol {
+protocol NetworkClientProtocol {
     func url() -> URL
     func parameters() -> [String : Any]?
     func extraHeaders() -> [String : String]?
@@ -68,7 +68,7 @@ protocol APIClientProtocol {
     
 }
 
-extension APIClientProtocol {
+extension NetworkClientProtocol {
     
     func parameters() -> [String : Any]? {
         return nil

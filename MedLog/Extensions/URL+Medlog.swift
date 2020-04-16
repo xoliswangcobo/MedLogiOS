@@ -10,15 +10,13 @@ import Foundation
 
 extension URL {
     
-    static let liveBaseURL = URL(string: "")!
+    static let liveBaseURL = URL(string: "http://127.0.0.1:8888/medlog/public")!
     
-    static let liveAuthURL = URL(string: "")!
+    static let liveAuthURL = URL(string: "http://127.0.0.1:8888/medlog/public")!
     
-    static let baseURL:URL = URL(string: "".localized())!
-
-    static let none: URL = URL(string: "/")!
+    static let baseURL:URL = URL(string: "http://127.0.0.1:8888/medlog/public")!
     
-    static let authURL:URL = URL(string: "".localized())!
+    static let authURL:URL = URL(string: "http://127.0.0.1:8888/medlog/public")!
     
     static let terms:URL = URL(string: "".localized())!
     
@@ -27,4 +25,6 @@ extension URL {
     static let website:URL = URL(string: "".localized())!
     
     static let support:URL = URL(string: "".localized())!
+    
+    static let none: URL = URL(string: "/")!
 }

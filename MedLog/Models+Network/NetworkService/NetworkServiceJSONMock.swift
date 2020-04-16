@@ -1,5 +1,5 @@
 //
-//  APIServiceJSONMock.swift
+//  NetworkServiceJSONMock.swift
 //  MedLog
 //
 //  Created by Xoliswa on 2020/01/01.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class APIServiceJSONMock : APIServiceProtocol {
+class NetworkServiceJSONMock : NetworkServiceProtocol {
     
     var serviceHost: URL = .none
     var authenticationToken: APIAccessToken?
@@ -26,10 +26,10 @@ class APIServiceJSONMock : APIServiceProtocol {
         }
     }
     
-    func execute(apiClient: APIClientProtocol, responseHandler: @escaping (Error?, Any?) -> Void) {
+    func execute(client: NetworkClientProtocol, responseHandler: @escaping (Error?, Any?) -> Void) {
         
-        if apiClient.method() == .GET, let parameters = apiClient.parameters() {
-            let url = apiClient.url()
+        if client.method() == .GET, let parameters = client.parameters() {
+            let url = client.url()
             var urlComponents = URLComponents.init(url: url, resolvingAgainstBaseURL: true)
             urlComponents?.queryItems = Array.init()
             
@@ -51,8 +51,8 @@ class APIServiceJSONMock : APIServiceProtocol {
         
     }
     
-    func execute<Model : Decodable>(apiClient: APIClientProtocol, responseHandler: @escaping (Error?, Model?) -> Void) {
-        self.execute(apiClient: apiClient) { (error, response) in
+    func execute<Model : Decodable>(client: NetworkClientProtocol, responseHandler: @escaping (Error?, Model?) -> Void) {
+        self.execute(client: client) { (error, response) in
             if let theResponse = response {
                 responseHandler(error, Model.decode(theResponse))
             } else {
