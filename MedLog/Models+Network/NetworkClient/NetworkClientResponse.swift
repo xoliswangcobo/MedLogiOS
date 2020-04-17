@@ -19,6 +19,7 @@ class APIClientResponse : Decodable {
         case success
         case message
         case code
+        case data
     }
 
     required init(from decoder: Decoder) throws {
@@ -29,8 +30,10 @@ class APIClientResponse : Decodable {
         self.status = succeeded == true ? .Success(message ?? "") : .Failed(message ?? "")
         
         self.code = try? values.decode(Int.self, forKey: .code)
+        self.data = try? values.decode([String:Any].self, forKey: .data)
     }
     
     var status: ResponseStatus?
     var code: Int?
+    var data: [String:Any]?
 }

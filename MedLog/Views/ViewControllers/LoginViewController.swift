@@ -41,9 +41,10 @@ class LoginViewController: BaseViewController {
         self.viewModel.authenticate() { status in
             switch status {
                 case .Success:
-                    let alertController = UIAlertController.init(title: "Login", message: "Login Success", preferredStyle: .alert)
-                    alertController.addAction(.init(title: "Dismiss", style: .default))
-                    self.present(alertController, animated: true)
+                    let navigationController = Storyboard.App.instantiateViewController(viewControllerClass: UINavigationController.self, storyboardID: "AppNavigationController")
+                    let tabBarController = navigationController.viewControllers.first as! AppTabBarController
+                    tabBarController.repository = self.viewModel.repository
+                    UIApplication.setRootView(navigationController, options: .transitionCrossDissolve)
                 case .Failed(let message):
                     let alertController = UIAlertController.init(title: "Login", message: message, preferredStyle: .alert)
                     alertController.addAction(.init(title: "Dismiss", style: .default))

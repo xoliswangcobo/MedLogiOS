@@ -1,17 +1,16 @@
 //
-//  Storyboards.swift
-//  Lokto
+//  UIViewController+BackButton.swift
+//  MedLog
 //
-//  Created by Altus Boneschans on 2019/11/14.
-//  Copyright © 2019 Lokto. All rights reserved.
+//  Created by Xoliswa on 2020/04/15.
+//  Copyright © 2020 NativeByte. All rights reserved.
 //
 
 import UIKit
 
 enum Storyboard : String {
     
-    case Main, Home, Buy, Sell, Limits, Orders, Wallets, AddWallet, Profile, FAQ, ResetPassword, Register,
-        InfoWebPage, SelectCountry, Misc
+    case App, Startup
     
     func instance() -> UIStoryboard {
         return UIStoryboard(name: self.rawValue, bundle: Bundle.main)

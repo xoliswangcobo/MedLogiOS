@@ -26,10 +26,11 @@ class ServiceHTTPAPIRequest : NetworkServiceProtocol {
         self.execute(client: client) { (error, response) in
             if let theResponse = response {
                 let apiResponse:APIClientResponse? = APIClientResponse.decode(theResponse)
+                let model:Model? = Model.decode(apiResponse?.data)
                 
                 switch apiResponse?.status {
                     case .Success:
-                        responseHandler(nil, Model.decode(theResponse))
+                        responseHandler(nil, model)
                     case .Failed(let message):
                         if let code =  apiResponse?.code, code > 0 {
                             responseHandler(NSError.errorForCode(code: code), nil)
@@ -102,6 +103,11 @@ class ServiceHTTPAPIRequest : NetworkServiceProtocol {
         // Evaluate Access Token
         if (self.authenticationToken != nil) {
             if (self.authenticationToken?.tokenStatus() != .valid) {
+                if self.refreshTokenHandler == nil {
+                    responseHandler(NSError.errorForMessage(message: "Session Expired".localized()), nil)
+                    return
+                }
+                
                 self.refreshTokenHandler?(self.authenticationToken, { error in
                     if self.authenticationToken?.tokenStatus() != .expired {
                         continueExecute()

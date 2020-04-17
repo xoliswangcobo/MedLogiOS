@@ -99,4 +99,22 @@ class Repository {
             completionHandler(error)
             } as ((Error?, APIClientResponse?) -> Void))
     }
+    
+    func logout(completionHandler:@escaping ((Error?) -> Void)) {
+        
+        struct LogoutClient: NetworkClientProtocol {
+            
+            func url() -> URL {
+                return URL(string: "/api/users/logout")!
+            }
+            
+            func method() -> HTTPRequestMethod {
+                return .POST
+            }
+        }
+        
+        self.servive.execute(client: LogoutClient(), responseHandler: { error, response in
+            completionHandler(error)
+            } as ((Error?, APIClientResponse?) -> Void))
+    }
 }

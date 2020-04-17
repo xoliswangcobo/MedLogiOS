@@ -22,23 +22,17 @@ class APIAccessToken : Codable {
         case tokenType = "token_type"
     }
     
+    var accessToken: String?
+    var tokenType: String!
+    var expiresIn: Date?
+    
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         self.accessToken = try values.decodeIfPresent(String.self, forKey: .accessToken) ?? ""
-        
-        let expiresIn = try values.decodeIfPresent(String.self, forKey: .expiresIn) ?? ""
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = .dateFormat
-        let expiryDate = dateFormatter.date(from: expiresIn)
-        
-        self.expiresIn = expiryDate
+        self.tokenType = try values.decodeIfPresent(String.self, forKey: .tokenType) ?? "Bearer"
+        self.expiresIn = Date().addSec(n: try values.decodeIfPresent(Int.self, forKey: .expiresIn) ?? 0)
     }
-    
-    var accessToken: String?
-    var tokenType: String = "Bearer"
-    var expiresIn: Date?
     
     func tokenStatus() -> TokenStatus {
         let remainingTime =  (self.expiresIn?.timeIntervalSince1970 ?? 0) - Date().timeIntervalSince1970
