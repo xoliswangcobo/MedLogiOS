@@ -11,8 +11,7 @@ import SkyFloatingLabelTextField
 import Bond
 import ReactiveKit
 
-class RegisterViewController: BaseViewController {
-
+class RegisterViewController: BaseViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var registerButton: TextButton!
     @IBOutlet weak var username: SkyFloatingLabelTextField!
     @IBOutlet weak var password: SkyFloatingLabelTextField!
@@ -22,10 +21,22 @@ class RegisterViewController: BaseViewController {
     @IBOutlet weak var country: SkyFloatingLabelTextField!
     @IBOutlet weak var language: SkyFloatingLabelTextField!
     
+    var countrySelect: UIPickerView!
+    var languageSelect: UIPickerView!
+    
     var viewModel: SignUpViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.countrySelect = .init()
+        self.countrySelect.delegate = self
+        self.country.inputView = self.countrySelect
+        
+        self.languageSelect = .init()
+        self.languageSelect.delegate = self
+        self.language.inputView = self.languageSelect
+        
         self.setUpBinding()
     }
     
@@ -63,6 +74,44 @@ class RegisterViewController: BaseViewController {
                     alertController.addAction(.init(title: "Dismiss", style: .default))
                     self.present(alertController, animated: true)
             }
+        }
+    }
+
+    // MARK: UIPickerViewDataSource
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView == self.countrySelect {
+            return self.viewModel.countries.count
+        } else if pickerView == self.languageSelect {
+            return self.viewModel.languages.count
+        }
+        
+        return 0
+    }
+
+    // MARK: UIPickerViewDelegate
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        
+        if pickerView == self.countrySelect {
+            let country = String(format:"%@ - %@", String.emojiFlag(regionCode: self.viewModel.countries[row].code) ?? "", self.viewModel.countries[row].name)
+            return .init(string: country, attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkText, NSAttributedString.Key.font: UIFont.medium])
+        } else if pickerView == self.languageSelect {
+            let language = String(format:"%@", self.viewModel.languages[row].name)
+            return .init(string: language, attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkText, NSAttributedString.Key.font: UIFont.medium])
+        }
+        
+        return .init(string: "")
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == self.countrySelect {
+            self.viewModel.country.value = self.viewModel.countries[row].name
+        } else if pickerView == self.languageSelect {
+            self.viewModel.language.value = self.viewModel.languages[row].name
         }
     }
 }

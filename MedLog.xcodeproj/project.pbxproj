@@ -40,7 +40,7 @@
 		F30764832435DFD800C1C82E /* String+Byte.swift in Sources */ = {isa = PBXBuildFile; fileRef = F307646A2435DFD700C1C82E /* String+Byte.swift */; };
 		F30764842435DFD800C1C82E /* Encodable+Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = F307646B2435DFD700C1C82E /* Encodable+Any.swift */; };
 		F30764852435DFD800C1C82E /* String+AppValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F307646C2435DFD700C1C82E /* String+AppValidation.swift */; };
-		F30764862435DFD800C1C82E /* String+Lokto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F307646D2435DFD700C1C82E /* String+Lokto.swift */; };
+		F30764862435DFD800C1C82E /* String+MedLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F307646D2435DFD700C1C82E /* String+MedLog.swift */; };
 		F30764872435DFD800C1C82E /* Data+AES.swift in Sources */ = {isa = PBXBuildFile; fileRef = F307646E2435DFD700C1C82E /* Data+AES.swift */; };
 		F30764882435DFD800C1C82E /* NSMutableAttributedString+Tappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F307646F2435DFD700C1C82E /* NSMutableAttributedString+Tappable.swift */; };
 		F30764892435DFD800C1C82E /* UIImage+AnimatedGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30764702435DFD700C1C82E /* UIImage+AnimatedGif.swift */; };
@@ -73,6 +73,7 @@
 		F3A80A3F2448E29100BB7EEF /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A80A3E2448E29100BB7EEF /* UIViewController+Storyboard.swift */; };
 		F3A80A412448E3A900BB7EEF /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A80A402448E3A900BB7EEF /* AppTabBarController.swift */; };
 		F3A80A432449124D00BB7EEF /* UIImage+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A80A422449124C00BB7EEF /* UIImage+Emoji.swift */; };
+		F3A80A45244D98B400BB7EEF /* UIFont+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A80A44244D98B300BB7EEF /* UIFont+App.swift */; };
 		F3C2815D2445D5B000630B44 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3C2815C2445D5B000630B44 /* Colors.xcassets */; };
 		F3C2815F2445D7C300630B44 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2815E2445D7C300630B44 /* BaseViewController.swift */; };
 		F3C281612445D7E000630B44 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C281602445D7E000630B44 /* LoginViewController.swift */; };
@@ -120,7 +121,7 @@
 		F307646A2435DFD700C1C82E /* String+Byte.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Byte.swift"; sourceTree = "<group>"; };
 		F307646B2435DFD700C1C82E /* Encodable+Any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+Any.swift"; sourceTree = "<group>"; };
 		F307646C2435DFD700C1C82E /* String+AppValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+AppValidation.swift"; sourceTree = "<group>"; };
-		F307646D2435DFD700C1C82E /* String+Lokto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Lokto.swift"; sourceTree = "<group>"; };
+		F307646D2435DFD700C1C82E /* String+MedLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+MedLog.swift"; sourceTree = "<group>"; };
 		F307646E2435DFD700C1C82E /* Data+AES.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+AES.swift"; sourceTree = "<group>"; };
 		F307646F2435DFD700C1C82E /* NSMutableAttributedString+Tappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Tappable.swift"; sourceTree = "<group>"; };
 		F30764702435DFD700C1C82E /* UIImage+AnimatedGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+AnimatedGif.swift"; sourceTree = "<group>"; };
@@ -153,6 +154,7 @@
 		F3A80A3E2448E29100BB7EEF /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
 		F3A80A402448E3A900BB7EEF /* AppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarController.swift; sourceTree = "<group>"; };
 		F3A80A422449124C00BB7EEF /* UIImage+Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Emoji.swift"; sourceTree = "<group>"; };
+		F3A80A44244D98B300BB7EEF /* UIFont+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+App.swift"; sourceTree = "<group>"; };
 		F3C2815C2445D5B000630B44 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		F3C2815E2445D7C300630B44 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		F3C281602445D7E000630B44 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -334,7 +336,7 @@
 				F307645E2435DFD600C1C82E /* String+CountryFlag.swift */,
 				F30764672435DFD700C1C82E /* String+Crypto.swift */,
 				F30764602435DFD600C1C82E /* String+Localization.swift */,
-				F307646D2435DFD700C1C82E /* String+Lokto.swift */,
+				F307646D2435DFD700C1C82E /* String+MedLog.swift */,
 				F30764652435DFD700C1C82E /* Timer+AppIntervals.swift */,
 				F30764632435DFD600C1C82E /* UIApplication+RootView.swift */,
 				F30764712435DFD700C1C82E /* UIControl+ClosureAction.swift */,
@@ -350,6 +352,7 @@
 				F3C2816E2447343E00630B44 /* UIViewController+BackButton.swift */,
 				F3A80A3E2448E29100BB7EEF /* UIViewController+Storyboard.swift */,
 				F3A80A422449124C00BB7EEF /* UIImage+Emoji.swift */,
+				F3A80A44244D98B300BB7EEF /* UIFont+App.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				F30764232435C7AB00C1C82E /* APIAccessToken.swift in Sources */,
 				F30764142435C69B00C1C82E /* Fileable.swift in Sources */,
 				F30764122435C68C00C1C82E /* File.swift in Sources */,
+				F3A80A45244D98B400BB7EEF /* UIFont+App.swift in Sources */,
 				F3A80A3B2448D66900BB7EEF /* ForgorPasswordViewModel.swift in Sources */,
 				F30764752435DFD800C1C82E /* URL+Medlog.swift in Sources */,
 				F30764242435C7AB00C1C82E /* BiometricAuth.swift in Sources */,
@@ -570,7 +574,7 @@
 				F307641C2435C6E100C1C82E /* Ward.swift in Sources */,
 				F30764AA2435E05400C1C82E /* BarProgressView.swift in Sources */,
 				F307648B2435DFD800C1C82E /* Decodable+Any.swift in Sources */,
-				F30764862435DFD800C1C82E /* String+Lokto.swift in Sources */,
+				F30764862435DFD800C1C82E /* String+MedLog.swift in Sources */,
 				F30764162435C6AF00C1C82E /* Hospital.swift in Sources */,
 				F30764792435DFD800C1C82E /* String+Localization.swift in Sources */,
 				F3C281652445D81100630B44 /* ForgotPasswordViewController.swift in Sources */,
