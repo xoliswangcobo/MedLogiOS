@@ -154,6 +154,7 @@
                     <connections>
                         <outlet property="loginButton" destination="UJa-Md-tP1" id="BTY-fl-0Jb"/>
                         <outlet property="password" destination="KeF-IX-VbO" id="rDa-2n-Rrb"/>
+                        <outlet property="scrollView" destination="zl2-gk-pm8" id="rpL-vP-5F4"/>
                         <outlet property="username" destination="w4m-gB-DP4" id="AYV-iW-o8s"/>
                     </connections>
                 </viewController>
@@ -490,6 +491,7 @@
                         <outlet property="mobile" destination="WfE-b1-Ezp" id="vsK-KI-VSJ"/>
                         <outlet property="password" destination="xjU-Fc-F4K" id="q4W-gq-Pkp"/>
                         <outlet property="registerButton" destination="qCk-6r-zAL" id="MKr-Vd-FXn"/>
+                        <outlet property="scrollView" destination="xNy-8c-958" id="Qu5-Xn-XeK"/>
                         <outlet property="username" destination="btE-Dw-MVx" id="Rw1-5K-8Zw"/>
                     </connections>
                 </viewController>
@@ -593,6 +595,7 @@
                     <navigationItem key="navigationItem" title="Forgot Password" id="220-WU-nLy"/>
                     <connections>
                         <outlet property="email" destination="qns-Ap-boC" id="RFF-fV-LI8"/>
+                        <outlet property="scrollView" destination="hQO-gA-pU8" id="H5i-2M-0nn"/>
                         <outlet property="sendForgotPasswordButton" destination="ozG-2l-Udx" id="WCH-9h-oKM"/>
                     </connections>
                 </viewController>

@@ -28,7 +28,11 @@ class RegisterViewController: BaseViewController, UIPickerViewDelegate, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.setUpPickerViews()
+        self.setUpBinding()
+    }
+    
+    private func setUpPickerViews() {
         self.countrySelect = .init()
         self.countrySelect.delegate = self
         self.country.inputView = self.countrySelect
@@ -36,8 +40,6 @@ class RegisterViewController: BaseViewController, UIPickerViewDelegate, UIPicker
         self.languageSelect = .init()
         self.languageSelect.delegate = self
         self.language.inputView = self.languageSelect
-        
-        self.setUpBinding()
     }
     
     private func setUpBinding() {
@@ -80,7 +82,7 @@ class RegisterViewController: BaseViewController, UIPickerViewDelegate, UIPicker
     // MARK: UIPickerViewDataSource
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        1
+        return 1
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -104,14 +106,14 @@ class RegisterViewController: BaseViewController, UIPickerViewDelegate, UIPicker
             return .init(string: language, attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkText, NSAttributedString.Key.font: UIFont.medium])
         }
         
-        return .init(string: "")
+        return nil
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == self.countrySelect {
-            self.viewModel.country.value = self.viewModel.countries[row].name
+            self.country.text = self.viewModel.countries[row].name
         } else if pickerView == self.languageSelect {
-            self.viewModel.language.value = self.viewModel.languages[row].name
+            self.language.text = self.viewModel.languages[row].name
         }
     }
 }
