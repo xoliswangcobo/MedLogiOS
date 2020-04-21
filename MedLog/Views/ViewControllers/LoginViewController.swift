@@ -32,6 +32,22 @@ class LoginViewController: BaseViewController {
             return self.viewModel.validate()
         }.bind(to: self.loginButton.reactive.isEnabled)
         
+        let _ = self.password.reactive.controlEvents([.editingDidEnd, .editingDidBegin]).observeNext {
+            self.password.errorMessage = ((self.password.text?.count ?? 0 > 0) && (self.password.text?.isPassword() == false)) ? "Password should be one upper and lower case letter, one number, one special character, minimum 8 characters and maximum 10 characters." : ""
+        }
+        
+        let _ = self.username.reactive.controlEvents([.editingDidEnd, .editingDidBegin]).observeNext {
+            self.username.errorMessage = ((self.username.text?.count ?? 0 > 0) && (self.username.text?.isValidEmail() == false)) ? "Not a valid email address." : ""
+        }
+        
+        let _ = self.password.reactive.controlEvents(.editingChanged).observeNext {
+            self.password.errorMessage = ""
+        }
+        
+        let _ = self.username.reactive.controlEvents(.editingChanged).observeNext {
+            self.username.errorMessage = ""
+        }
+        
         let _ = self.loginButton.reactive.controlEvents(.touchUpInside).observeNext {
             self.authenticate()
         }
