@@ -27,10 +27,10 @@ class BaseViewController: UIViewController {
         
         let customBackButton = UIBarButtonItem(title: "", style: .plain, target: navigationItem.backBarButtonItem?.target, action: navigationItem.backBarButtonItem?.action)
         navigationItem.backBarButtonItem = customBackButton
-//        for family in UIFont.familyNames.sorted() {
-//            let names = UIFont.fontNames(forFamilyName: family)
-//            print("Family: \(family) Font names: \(names)")
-//        }
+        for family in UIFont.familyNames.sorted() {
+            let names = UIFont.fontNames(forFamilyName: family)
+            print("Family: \(family) Font names: \(names)")
+        }
     }
 
 // MARK: - KeyBoard Notification

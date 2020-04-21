@@ -42,6 +42,6 @@ class LoginViewModel {
             return false
         }
         
-        return username.isNotEmpty && password.isNotEmpty
+        return username.isValidEmail() && password.isPassword()
     }
 }

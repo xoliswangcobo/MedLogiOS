@@ -62,6 +62,7 @@
 		F30764AD2435E05400C1C82E /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30764A42435E05400C1C82E /* TextFieldEffects.swift */; };
 		F30764AE2435E05400C1C82E /* ArrowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30764A52435E05400C1C82E /* ArrowButton.swift */; };
 		F30764AF2435E05400C1C82E /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30764A62435E05400C1C82E /* TextButton.swift */; };
+		F30BB9DB244F678400E1BBBE /* FontAwesome5-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30BB9DA244F667600E1BBBE /* FontAwesome5-Solid-900.otf */; };
 		F345308024476CE200574471 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F345307F24476CE200574471 /* Repository.swift */; };
 		F34530832447A73B00574471 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34530822447A73B00574471 /* LoginViewModel.swift */; };
 		F36B683A243872D40018B116 /* NetworkClientResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36B6839243872D40018B116 /* NetworkClientResponse.swift */; };
@@ -143,6 +144,7 @@
 		F30764A42435E05400C1C82E /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
 		F30764A52435E05400C1C82E /* ArrowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrowButton.swift; sourceTree = "<group>"; };
 		F30764A62435E05400C1C82E /* TextButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
+		F30BB9DA244F667600E1BBBE /* FontAwesome5-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontAwesome5-Solid-900.otf"; sourceTree = "<group>"; };
 		F345307F24476CE200574471 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		F34530822447A73B00574471 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F36B6839243872D40018B116 /* NetworkClientResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClientResponse.swift; sourceTree = "<group>"; };
@@ -375,6 +377,14 @@
 			path = TextFieldEffects;
 			sourceTree = "<group>";
 		};
+		F30BB9D9244F666300E1BBBE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F30BB9DA244F667600E1BBBE /* FontAwesome5-Solid-900.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		F345307B2447694100574471 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,6 +414,7 @@
 		F345307E24476A2000574471 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				F30BB9D9244F666300E1BBBE /* Fonts */,
 				F30763FD24346D0500C1C82E /* Assets.xcassets */,
 				F3C2815C2445D5B000630B44 /* Colors.xcassets */,
 			);
@@ -494,6 +505,7 @@
 				F307640124346D0500C1C82E /* LaunchScreen.storyboard in Resources */,
 				F30763FE24346D0500C1C82E /* Assets.xcassets in Resources */,
 				F30763FC24346D0200C1C82E /* Startup.storyboard in Resources */,
+				F30BB9DB244F678400E1BBBE /* FontAwesome5-Solid-900.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

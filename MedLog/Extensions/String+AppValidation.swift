@@ -16,6 +16,13 @@ extension String {
         return emailTest.evaluate(with: self)
     }
     
+    func isPassword() -> Bool {
+        let regEx = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,10}$"
+        
+        let test = NSPredicate(format:"SELF MATCHES %@", regEx)
+        return test.evaluate(with: self)
+    }
+    
     func camelCaseToWords() -> String {
         return unicodeScalars.reduce("") {
             if CharacterSet.uppercaseLetters.contains($1) {
