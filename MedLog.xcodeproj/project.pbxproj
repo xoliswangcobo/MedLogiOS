@@ -63,6 +63,9 @@
 		F30764AE2435E05400C1C82E /* ArrowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30764A52435E05400C1C82E /* ArrowButton.swift */; };
 		F30764AF2435E05400C1C82E /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30764A62435E05400C1C82E /* TextButton.swift */; };
 		F30BB9DB244F678400E1BBBE /* FontAwesome5-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30BB9DA244F667600E1BBBE /* FontAwesome5-Solid-900.otf */; };
+		F30BB9EA244F7BEF00E1BBBE /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BB9E7244F7BEF00E1BBBE /* SkyFloatingLabelTextField.swift */; };
+		F30BB9EB244F7BEF00E1BBBE /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BB9E8244F7BEF00E1BBBE /* SkyFloatingLabelTextFieldWithIcon.swift */; };
+		F30BB9EC244F7BEF00E1BBBE /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BB9E9244F7BEF00E1BBBE /* UITextField+fixCaretPosition.swift */; };
 		F345308024476CE200574471 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F345307F24476CE200574471 /* Repository.swift */; };
 		F34530832447A73B00574471 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34530822447A73B00574471 /* LoginViewModel.swift */; };
 		F36B683A243872D40018B116 /* NetworkClientResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36B6839243872D40018B116 /* NetworkClientResponse.swift */; };
@@ -145,6 +148,9 @@
 		F30764A52435E05400C1C82E /* ArrowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrowButton.swift; sourceTree = "<group>"; };
 		F30764A62435E05400C1C82E /* TextButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		F30BB9DA244F667600E1BBBE /* FontAwesome5-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontAwesome5-Solid-900.otf"; sourceTree = "<group>"; };
+		F30BB9E7244F7BEF00E1BBBE /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
+		F30BB9E8244F7BEF00E1BBBE /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
+		F30BB9E9244F7BEF00E1BBBE /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
 		F345307F24476CE200574471 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		F34530822447A73B00574471 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F36B6839243872D40018B116 /* NetworkClientResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClientResponse.swift; sourceTree = "<group>"; };
@@ -286,6 +292,7 @@
 				F30764A62435E05400C1C82E /* TextButton.swift */,
 				F307649D2435E05400C1C82E /* CircularProgressView.swift */,
 				F30764A22435E05400C1C82E /* TextFieldEffects */,
+				F30BB9E6244F7B6A00E1BBBE /* SkyFloatingLabelTextField */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -383,6 +390,16 @@
 				F30BB9DA244F667600E1BBBE /* FontAwesome5-Solid-900.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F30BB9E6244F7B6A00E1BBBE /* SkyFloatingLabelTextField */ = {
+			isa = PBXGroup;
+			children = (
+				F30BB9E7244F7BEF00E1BBBE /* SkyFloatingLabelTextField.swift */,
+				F30BB9E8244F7BEF00E1BBBE /* SkyFloatingLabelTextFieldWithIcon.swift */,
+				F30BB9E9244F7BEF00E1BBBE /* UITextField+fixCaretPosition.swift */,
+			);
+			path = SkyFloatingLabelTextField;
 			sourceTree = "<group>";
 		};
 		F345307B2447694100574471 /* NetworkService */ = {
@@ -558,6 +575,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F30BB9EC244F7BEF00E1BBBE /* UITextField+fixCaretPosition.swift in Sources */,
 				F30764AD2435E05400C1C82E /* TextFieldEffects.swift in Sources */,
 				F307647D2435DFD800C1C82E /* UITextField+Password.swift in Sources */,
 				F30764772435DFD800C1C82E /* String+CountryFlag.swift in Sources */,
@@ -580,6 +598,7 @@
 				F30764242435C7AB00C1C82E /* BiometricAuth.swift in Sources */,
 				F36B683C2438744F0018B116 /* UIColor+MedLog.swift in Sources */,
 				F3A80A3F2448E29100BB7EEF /* UIViewController+Storyboard.swift in Sources */,
+				F30BB9EA244F7BEF00E1BBBE /* SkyFloatingLabelTextField.swift in Sources */,
 				F30764802435DFD800C1C82E /* String+Crypto.swift in Sources */,
 				F30764892435DFD800C1C82E /* UIImage+AnimatedGif.swift in Sources */,
 				F30764AC2435E05400C1C82E /* YoshikoTextField.swift in Sources */,
@@ -609,6 +628,7 @@
 				F307641A2435C6D600C1C82E /* User.swift in Sources */,
 				F30764842435DFD800C1C82E /* Encodable+Any.swift in Sources */,
 				F34530832447A73B00574471 /* LoginViewModel.swift in Sources */,
+				F30BB9EB244F7BEF00E1BBBE /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				F3C281612445D7E000630B44 /* LoginViewController.swift in Sources */,
 				F307649B2435E00C00C1C82E /* ServiceHTTPAPIRequest.swift in Sources */,
 				F345308024476CE200574471 /* Repository.swift in Sources */,

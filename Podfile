@@ -6,6 +6,5 @@ target 'MedLog' do
   use_frameworks!
 
   # Pods for MedLog
-  pod 'SkyFloatingLabelTextField', '~> 3.0'
   pod 'Bond'
 end
