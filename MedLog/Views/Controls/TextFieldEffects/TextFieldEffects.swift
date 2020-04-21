@@ -8,15 +8,6 @@
 
 import UIKit
 
-extension String {
-    /**
-     true if self contains characters.
-     */
-    var isNotEmpty: Bool {
-        return !isEmpty
-    }
-}
-
 /**
  A TextFieldEffects object is a control that displays editable text and contains the boilerplates to setup unique animations for text entry and display. You typically use this class the same way you use UITextField.
  */

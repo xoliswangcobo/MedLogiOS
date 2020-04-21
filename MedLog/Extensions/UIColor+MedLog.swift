@@ -33,4 +33,8 @@ extension UIColor {
     class var border: UIColor {
         return UIColor.init(named: "")!
     }
+    
+    class var error: UIColor {
+        return UIColor.init(named: "error")!
+    }
 }
