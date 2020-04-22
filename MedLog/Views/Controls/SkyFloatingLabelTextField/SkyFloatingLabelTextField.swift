@@ -736,13 +736,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
                     return self.intrinsicContentSize
                 }
                 
-                if (abs(titleHeight() - titleLabel.font.lineHeight)) >= 1 {
-                    newHeight = newHeight + 2*singleLineHeight
-                    constraint.constant = -(newHeight)
-                } else {
-                    newHeight = 2*singleLineHeight
-                    constraint.constant = 0
-                }
+                continue
             } else if constraint.firstAttribute == .height && constraint.secondAttribute == .notAnAttribute {
                 if self.defaultHeightConstraint == 0 {
                     self.defaultHeightConstraint = constraint.constant
