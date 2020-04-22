@@ -50,6 +50,67 @@ class RegisterViewController: BaseViewController, UIPickerViewDelegate, UIPicker
         self.viewModel.language.bidirectionalBind(to: self.language.reactive.text)
         self.viewModel.country.bidirectionalBind(to: self.country.reactive.text)
         
+        
+        // UIPicker Validation Prepare
+        
+        let _ = self.viewModel.availableCountries.observeNext { _ in 
+            self.countrySelect.reloadAllComponents()
+            self.country.isEnabled = self.viewModel.countries.count > 0
+            self.country.placeholder = self.country.isEnabled ? "select country" : "no countries available"
+        }
+        
+        let _ = self.viewModel.availableLanguages.observeNext { _ in
+            self.languageSelect.reloadAllComponents()
+            self.language.isEnabled = self.viewModel.languages.count > 0
+            self.language.placeholder = self.language.isEnabled ? "select language" : "no languages available"
+        }
+        
+        // Username and Password
+        
+        let _ = self.password.reactive.controlEvents([.editingDidEnd, .editingDidBegin]).observeNext {
+            self.password.errorMessage = ((self.password.text?.count ?? 0 > 0) && (self.password.text?.isPassword() == false)) ? "Password should be one upper and lower case letter, one number, one special character, minimum 8 characters and maximum 10 characters" : ""
+        }
+        
+        let _ = self.username.reactive.controlEvents([.editingDidEnd, .editingDidBegin]).observeNext {
+            self.username.errorMessage = ((self.username.text?.count ?? 0 > 0) && (self.username.text?.isValidEmail() == false)) ? "Not a valid email address" : ""
+        }
+        
+        let _ = self.password.reactive.controlEvents(.editingChanged).observeNext {
+            self.password.errorMessage = ""
+        }
+        
+        let _ = self.username.reactive.controlEvents(.editingChanged).observeNext {
+            self.username.errorMessage = ""
+        }
+        
+        // Other Required
+        
+        let _ = self.firtname.reactive.controlEvents([.editingDidEnd, .editingDidBegin]).observeNext {
+            self.firtname.errorMessage = (self.firtname.text?.count ?? 0 > 0) ? "" : "Firstname required"
+        }
+        
+        let _ = self.lastname.reactive.controlEvents([.editingDidEnd, .editingDidBegin]).observeNext {
+            self.lastname.errorMessage = (self.lastname.text?.count ?? 0 > 0) ? "" : "Lastname required"
+        }
+        
+        let _ = self.mobile.reactive.controlEvents([.editingDidEnd, .editingDidBegin]).observeNext {
+            self.mobile.errorMessage = (self.mobile.text?.count ?? 0 > 0) ? "" : "Mobile number required"
+        }
+        
+        let _ = self.firtname.reactive.controlEvents(.editingChanged).observeNext {
+            self.firtname.errorMessage = ""
+        }
+        
+        let _ = self.lastname.reactive.controlEvents(.editingChanged).observeNext {
+            self.lastname.errorMessage = ""
+        }
+        
+        let _ = self.mobile.reactive.controlEvents(.editingChanged).observeNext {
+            self.mobile.errorMessage = ""
+        }
+        
+        // Global Validation
+        
         combineLatest(self.username.reactive.text, self.password.reactive.text, self.firtname.reactive.text, self.lastname.reactive.text) { email, pass, firstname, lastname in
             return self.viewModel.validate()
         }.bind(to: self.registerButton.reactive.isEnabled)

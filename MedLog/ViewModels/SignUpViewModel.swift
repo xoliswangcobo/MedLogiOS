@@ -18,19 +18,33 @@ class SignUpViewModel {
     
     var repository:Repository
     
-    var countries:[(code:String, name:String)] = [(name:"South Africa", code:"ZA")]
-    var languages:[(code:String, name:String)] = [(name:"English", code:"en"), (name:"IsiZulu", code:"zu")]
+    var availableCountries:MutableObservableArray<(code:String, name:String)> = MutableObservableArray([])
+    var countries:[(code:String, name:String)] {
+        get {
+            return self.availableCountries.value.collection
+        }
+    }
+    
+    var availableLanguages:MutableObservableArray<(code:String, name:String)> = MutableObservableArray([])
+    var languages:[(code:String, name:String)] {
+        get {
+            return self.availableLanguages.value.collection
+        }
+    }
     
     var email: Observable<String?> = Observable<String?>("ngcobox@gmail.com")
     var password: Observable<String?> = Observable<String?>("12345")
     var firstname: Observable<String?> = Observable<String?>("Xoliswa")
     var lastname: Observable<String?> = Observable<String?>("Ngcobo")
     var mobile: Observable<String?> = Observable<String?>("+27833374192")
-    var country: Observable<String?> = Observable<String?>("South Africa")
-    var language: Observable<String?> = Observable<String?>("English")
+    var country: Observable<String?> = Observable<String?>("")
+    var language: Observable<String?> = Observable<String?>("")
     
     init(repository:Repository) {
         self.repository = repository
+        
+        self.availableLanguages.replace(with: [(name:"English", code:"en"), (name:"IsiZulu", code:"zu")])
+        self.availableCountries.replace(with: [(name:"South Africa", code:"ZA")])
     }
     
     func register(completion:((SignUpStatus) -> Void)?) {
@@ -58,6 +72,6 @@ class SignUpViewModel {
             return false
         }
 
-        return (email.isNotEmpty && password.isNotEmpty && firstname.isNotEmpty && lastname.isNotEmpty && mobile.isNotEmpty && country.isNotEmpty && language.isNotEmpty)
+        return (email.isValidEmail() && password.isPassword() && firstname.isNotEmpty && lastname.isNotEmpty && mobile.isNotEmpty && country.isNotEmpty && language.isNotEmpty)
     }
 }
