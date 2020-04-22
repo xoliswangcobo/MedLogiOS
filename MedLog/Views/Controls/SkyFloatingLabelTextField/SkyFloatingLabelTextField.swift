@@ -562,7 +562,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             self.titleLabel.frame = frame
             
             // Adjust Contraints and InstrinsicSize
-//            self.invalidateIntrinsicContentSize()
+            self.invalidateIntrinsicContentSize()
         }
         if animated {
             #if swift(>=4.2)
@@ -725,6 +725,17 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             if ((constraint.firstItem as? SkyFloatingLabelTextField
                 == constraint.secondItem as? SkyFloatingLabelTextField) && (constraint.firstAttribute == .width) && (constraint.secondAttribute == .height)) == true {
                 // Aspect Ratio
+                if self.defaultHeightConstraint == 0 {
+                    let constraintHeight = NSLayoutConstraint.init(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: self.bounds.size.width/6.66667)
+                    constraintHeight.priority = UILayoutPriority(rawValue: 999)
+
+                    constraint.priority = UILayoutPriority(rawValue: 700)
+                    self.defaultHeightConstraint = constraintHeight.constant
+                    
+                    self.addConstraint(constraintHeight)
+                    return self.intrinsicContentSize
+                }
+                
                 if (abs(titleHeight() - titleLabel.font.lineHeight)) >= 1 {
                     newHeight = newHeight + 2*singleLineHeight
                     constraint.constant = -(newHeight)
