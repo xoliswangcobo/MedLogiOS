@@ -39,6 +39,6 @@ class ForgorPasswordViewModel {
             return false
         }
         
-        return email.isNotEmpty
+        return email.isValidEmail()
     }
 }

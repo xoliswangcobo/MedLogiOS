@@ -29,6 +29,14 @@ class ForgotPasswordViewController: BaseViewController {
             self.sendForgotPasswordButton.isEnabled = self.viewModel.validate()
         }
         
+        let _ = self.email.reactive.controlEvents([.editingDidEnd, .editingDidBegin]).observeNext {
+            self.email.errorMessage = ((self.email.text?.count ?? 0 > 0) && (self.email.text?.isValidEmail() == false)) ? "Not a valid email address." : ""
+        }
+        
+        let _ = self.email.reactive.controlEvents(.editingChanged).observeNext {
+            self.email.errorMessage = ""
+        }
+        
         let _ = self.sendForgotPasswordButton.reactive.controlEvents(.touchUpInside).observeNext {
             self.forgotPasswordSend()
         }
