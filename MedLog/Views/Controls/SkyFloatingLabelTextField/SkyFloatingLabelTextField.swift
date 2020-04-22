@@ -1,12 +1,12 @@
 //  Copyright 2016-2019 Skyscanner Ltd
 //
-//  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance 
+//  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance
 //  with the License. You may obtain a copy of the License at
 //
 //  http://www.apache.org/licenses/LICENSE-2.0
 //
-//  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed 
-//  on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License 
+//  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed
+//  on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License
 //  for the specific language governing permissions and limitations under the License.
 
 import UIKit
@@ -33,7 +33,7 @@ extension String {
 @IBDesignable
 open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this type_body_length
     /**
-     A Boolean value that determines if the language displayed is LTR. 
+     A Boolean value that determines if the language displayed is LTR.
      Default value set automatically from the application language settings.
      */
     @objc open var isLTRLanguage: Bool = UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
@@ -51,6 +51,11 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             titleLabel.textAlignment = .right
         }
     }
+    
+    /**
+    A collection for existing layout contraints
+    */
+    var defaultHeightConstraint:CGFloat = 0
 
     // MARK: Animation timing
 
@@ -216,7 +221,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     // MARK: Properties
 
     /**
-    The formatter used before displaying content in the title label. 
+    The formatter used before displaying content in the title label.
     This can be the `title`, `selectedTitle` or the `errorMessage`.
     The default implementation converts the text to uppercase.
     */
@@ -551,9 +556,13 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         
         let alpha: CGFloat = isTitleVisible() ? 1.0 : 0.0
         let frame: CGRect = titleLabelRectForBounds(bounds, editing: isTitleVisible())
+
         let updateBlock = { () -> Void in
             self.titleLabel.alpha = alpha
             self.titleLabel.frame = frame
+            
+            // Adjust Contraints and InstrinsicSize
+//            self.invalidateIntrinsicContentSize()
         }
         if animated {
             #if swift(>=4.2)
@@ -641,7 +650,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     }
 
     /**
-     Calculate the bounds for the bottom line of the control. 
+     Calculate the bounds for the bottom line of the control.
      Override to create a custom size bottom line in the textbox.
      - parameter bounds: The current bounds of the line
      - parameter editing: True if the control is selected or highlighted
@@ -657,10 +666,11 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      -returns: the calculated height of the title label. Override to size the title with a different height
      */
     open func titleHeight() -> CGFloat {
-        if let titleLabel = titleLabel, let font = titleLabel.font {
-            return font.lineHeight
+        if let titleLabel = titleLabel {
+//            let font = titleLabel.font {
+//            return font.lineHeight
         
-//            return titleLabel.text?.height(withConstrainedWidth: self.bounds.size.width, font: titleLabel.font) ?? titleLabel.font.lineHeight
+            return titleLabel.text?.height(withConstrainedWidth: self.bounds.size.width, font: titleLabel.font) ?? titleLabel.font.lineHeight
         }
         
         return 15.0
@@ -708,7 +718,38 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      - returns: the content size to be used for auto layout
      */
     override open var intrinsicContentSize: CGSize {
-        return CGSize(width: bounds.size.width, height: titleHeight() + textHeight())
+        let singleLineHeight = "text".height(withConstrainedWidth: self.bounds.size.width, font: titleLabel.font)
+        var newHeight =  titleHeight() + singleLineHeight
+        
+        for constraint in  self.constraints {
+            if ((constraint.firstItem as? SkyFloatingLabelTextField
+                == constraint.secondItem as? SkyFloatingLabelTextField) && (constraint.firstAttribute == .width) && (constraint.secondAttribute == .height)) == true {
+                // Aspect Ratio
+                if (abs(titleHeight() - titleLabel.font.lineHeight)) >= 1 {
+                    newHeight = newHeight + 2*singleLineHeight
+                    constraint.constant = -(newHeight)
+                } else {
+                    newHeight = 2*singleLineHeight
+                    constraint.constant = 0
+                }
+            } else if constraint.firstAttribute == .height && constraint.secondAttribute == .notAnAttribute {
+                if self.defaultHeightConstraint == 0 {
+                    self.defaultHeightConstraint = constraint.constant
+                }
+                
+                if (abs(titleHeight() - titleLabel.font.lineHeight)) >= 1 {
+                    newHeight = self.defaultHeightConstraint + titleHeight()
+                    constraint.constant = newHeight
+                } else {
+                    newHeight = self.defaultHeightConstraint
+                    constraint.constant = self.defaultHeightConstraint
+                }
+            }
+        }
+        
+        let size = CGSize(width: bounds.size.width, height: newHeight)
+        
+        return size
     }
 
     // MARK: - Helpers

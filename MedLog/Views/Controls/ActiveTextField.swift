@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class ActiveTextField: SkyFloatingLabelTextField {
 
 //    @IBInspectable var isPasteEnabled: Bool = true
