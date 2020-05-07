@@ -7,4 +7,7 @@ target 'MedLog' do
 
   # Pods for MedLog
   pod 'Bond'
+  pod 'Swinject'
+  pod 'SwinjectStoryboard'
+  
 end
