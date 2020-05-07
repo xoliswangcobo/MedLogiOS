@@ -85,6 +85,7 @@
 		F3C281652445D81100630B44 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C281642445D81100630B44 /* ForgotPasswordViewController.swift */; };
 		F3C281672445D96B00630B44 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C281662445D96B00630B44 /* LaunchViewController.swift */; };
 		F3C2816F2447343E00630B44 /* UIViewController+BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2816E2447343E00630B44 /* UIViewController+BackButton.swift */; };
+		F3D523802463582100CD5449 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D5237F2463582100CD5449 /* AppContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -170,6 +171,7 @@
 		F3C281642445D81100630B44 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		F3C281662445D96B00630B44 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		F3C2816E2447343E00630B44 /* UIViewController+BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+BackButton.swift"; sourceTree = "<group>"; };
+		F3D5237F2463582100CD5449 /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,6 +323,7 @@
 		F307641E2435C7AB00C1C82E /* ApplicationModels */ = {
 			isa = PBXGroup;
 			children = (
+				F3D5237F2463582100CD5449 /* AppContainer.swift */,
 				F307641F2435C7AB00C1C82E /* APIAccessToken.swift */,
 				F30764202435C7AB00C1C82E /* BiometricAuth.swift */,
 				F30764212435C7AB00C1C82E /* KeyChainSecurity.swift */,
@@ -609,6 +612,7 @@
 				F30764162435C6AF00C1C82E /* Hospital.swift in Sources */,
 				F30764792435DFD800C1C82E /* String+Localization.swift in Sources */,
 				F3C281652445D81100630B44 /* ForgotPasswordViewController.swift in Sources */,
+				F3D523802463582100CD5449 /* AppContainer.swift in Sources */,
 				F307647E2435DFD800C1C82E /* Timer+AppIntervals.swift in Sources */,
 				F30764102435C66000C1C82E /* Department.swift in Sources */,
 				F30764AB2435E05400C1C82E /* ActiveTextField.swift in Sources */,
