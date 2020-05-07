@@ -19,13 +19,7 @@ class LaunchViewController: UIViewController {
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
             let loginNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "LoginNavigationController") as! UINavigationController
-            
-            let service:NetworkServiceProtocol = ServiceHTTPAPIRequest.init(serviceHost: URL.baseURL)
-            let repository:Repository = Repository.init(service: service)
-            
-            let loginViewController = loginNavigationController.topViewController as! LoginViewController
-            loginViewController.viewModel = LoginViewModel.init(repository: repository)
-            
+
             UIApplication.setRootView(loginNavigationController, options: .transitionCrossDissolve)
         }
     }

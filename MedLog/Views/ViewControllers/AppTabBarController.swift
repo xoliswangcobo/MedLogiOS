@@ -21,8 +21,6 @@ class AppTabBarController: UITabBarController {
         self.repository.logout { (error) in
             self.repository.servive.authenticationToken = nil
             let navigationController = Storyboard.Startup.instantiateViewController(viewControllerClass: UINavigationController.self, storyboardID: "LoginNavigationController")
-            let loginViewController = navigationController.viewControllers.first as! LoginViewController
-            loginViewController.viewModel = LoginViewModel.init(repository: self.repository)
             
             UIApplication.setRootView(navigationController, options: UIApplication.logoutAnimation, animated: false)
         }

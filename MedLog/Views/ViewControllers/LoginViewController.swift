@@ -57,8 +57,6 @@ class LoginViewController: BaseViewController {
             switch status {
                 case .Success:
                     let navigationController = Storyboard.App.instantiateViewController(viewControllerClass: UINavigationController.self, storyboardID: "AppNavigationController")
-                    let tabBarController = navigationController.viewControllers.first as! AppTabBarController
-                    tabBarController.repository = self.viewModel.repository
                     UIApplication.setRootView(navigationController, options: .transitionCrossDissolve)
                 case .Failed(let message):
                     let alertController = UIAlertController.init(title: "Login", message: message, preferredStyle: .alert)
@@ -70,11 +68,9 @@ class LoginViewController: BaseViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSignUp" {
-            let registrationController = segue.destination as! RegisterViewController
-            registrationController.viewModel = .init(repository: self.viewModel.repository)
+           
         } else if segue.identifier == "toForgotPassword" {
-            let forgotPasswordController = segue.destination as! ForgotPasswordViewController
-            forgotPasswordController.viewModel = .init(repository: self.viewModel.repository)
+            
         }
     }
 }
